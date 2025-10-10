@@ -1,0 +1,37 @@
+.about {
+    background-image: url('ABOUT US Background.png');
+    background-repeat: repeat-y;
+    background-size: cover;
+    padding: 10px 48px 36px;
+    position: relative;
+    box-sizing: border-box;
+    border-top: 6px solid rgba(0,0,0,0.02);
+    text-align: center;
+}
+.about h2 {
+    display:inline-block;
+    padding: 8px 14px;
+    margin: 4px auto 18px;
+    border-radius: 2px;
+    letter-spacing: 4px;
+    color: #111;
+    font-family: "Jersey 25", sans-serif;  
+    font-weight: 400;
+    font-style: normal;
+}
+.about p {
+    margin-top: 0px;
+    border-radius: 3px;
+    font-size: 13px;
+    line-height: 1.6;
+    color:#222;
+    box-shadow: 0 1px 0 rgba(0,0,0,0.03);
+}
+.decor-car {
+    width: 82px;
+    position: absolute;
+    right: 14px;
+    bottom: 18px;
+    z-index: 3;
+    transform: translateY(6px);
+}
