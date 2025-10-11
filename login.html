@@ -4,39 +4,64 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width,initial-scale=1" />
     <title>Porsche Hub - Login</title>
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&family=Homemade+Apple&family=Jersey+25&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/styles.css" />
     <link rel="stylesheet" href="css/login.css" />
 </head>
 <body>
     <header class="hero">
-    <div class="overlay"></div>
-    <div class="topnav">
-        <img src="img/logo_black_bg_white_text.png" class="logo" alt="logo" />
-        <nav>
-            <ul class="menu">
-                <li><a href="index.html">HOME</a></li>
-                <li><a href="about.html">ABOUT</a></li>
-                <li><a href="showcase.html">SHOWCASE</a></li>
-                <li><a href="buy.html">BUY NOW</a></li>
-                <li><a href="login.html">LOGIN</a></li>
-            </ul>
-        </nav>
-    </div>
-</header>
+        <div class="overlay"></div>
+        <div class="topnav">
+            <img src="img/logo_black_bg_white_text.png" class="logo" alt="Porsche Hub" />
+            <nav>
+                <ul class="menu">
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="about.html">ABOUT</a></li>
+                    <li><a href="showcase.html">SHOWCASE</a></li>
+                    <li><a href="buy.html">BUY NOW</a></li>
+                    <li><a class="active" href="login.html">LOGIN</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
 
     <main class="page login-page">
-        <form class="login-box" action="#" method="post">
-            <h3>LOGIN</h3>
-            <label>Name<input type="text" placeholder="Type here" /></label>
-            <label>Address<input type="text" placeholder="Type here" /></label>
-            <label>Password<input type="password" placeholder="Type here" /></label>
-            <label>Confirm Password<input type="password" placeholder="Type here" /></label>
-            <button class="btn-primary" type="submit">Continue</button>
-            <div class="alt">Or sign-in with Google</div>
-            <a class="small" href="#">Already a member? Login</a>
-        </form>
+        <div class="login-wrap">
+            <form class="login-card" action="#" method="post" novalidate>
+                <div class="card-left">
+                    <label>
+                        <span class="field-label">Name</span>
+                        <input type="text" name="name" placeholder="Type here" />
+                    </label>
+
+                    <label>
+                        <span class="field-label">Address</span>
+                        <input type="text" name="address" placeholder="Type here" />
+                    </label>
+
+                    <label>
+                        <span class="field-label">Password</span>
+                        <input type="password" name="password" placeholder="Type here" />
+                    </label>
+
+                    <label>
+                        <span class="field-label">Confirm Password</span>
+                        <input type="password" name="confirm" placeholder="Type here" />
+                    </label>
+                </div>
+
+                <aside class="card-right">
+                    <div class="login-title">LOGIN</div>
+                    <button class="btn-primary" type="submit">Continue</button>
+
+                    <div class="oauth">
+                        <img src="img/google_icon.png" alt="google" />
+                        <span>Or sign‑in with Google</span>
+                    </div>
+
+                    <a class="small" href="#">Already a member? <span class="login-link">Login</span></a>
+                </aside>
+            </form>
+        </div>
     </main>
 
     <footer class="site-footer">
