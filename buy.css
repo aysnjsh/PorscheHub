@@ -1,6 +1,9 @@
+body {
+    background-image: url('img/square_bg.png');
+}
+
 :root{
     --page-width:390px;
-    --card-bg: linear-gradient(180deg,#fff,#f6f6f6);
     --accent:#111;
 }
 
@@ -57,11 +60,9 @@
 
 /* product card */
 .product{
-    background:var(--card-bg);
     border-radius:10px;
     padding:14px;
     text-align:center;
-    box-shadow:0 10px 20px rgba(0,0,0,0.12);
     display:flex;
     flex-direction:column;
     align-items:center;
@@ -70,15 +71,26 @@
     width:180px;
     max-width:100%;
     border-radius:6px;
-    border:4px solid rgba(0,0,0,0.06);
+    border:3px solid rgba(0,0,0,1);
     box-shadow:0 8px 18px rgba(0,0,0,0.2);
     background:#fff;
+
+    /* lowered brightness */
+    filter: brightness(0.88) contrast(0.98);
+    transition: filter 180ms ease;
 }
+
+/* restore brightness on hover/focus for visual feedback */
+.product img {
+    filter: brightness(0.7) contrast(1);
+}
+
 .product .desc{
     font-size:9px;
     color:#444;
     margin:10px 8px;
     line-height:1.4;
+    font-family: "Kumbh Sans", sans-serif;
 }
 
 /* pill CTA */
@@ -86,12 +98,15 @@
     margin-top:6px;
     background:var(--accent);
     color:#fff;
-    padding:10px 18px;
-    border-radius:24px;
+    padding:2px 15px;
+    border-radius:15px;
     border:none;
     font-weight:800;
     letter-spacing:1px;
     cursor:pointer;
+    font-family: "Koulen", sans-serif;
+    font-weight: 100;
+    font-size: 17px;
 }
 
 /* single (center) product spans both columns */
@@ -106,4 +121,99 @@
     .products{ gap:16px; }
     .product img{ width:160px; }
     .mini-car{ width:56px; }
+}
+
+@media (min-width: 768px) {
+    .hero {
+        background-image: none !important;
+        background-color: #000 !important;
+        height: 72px;
+    }
+    .hero .overlay { display: none !important; }
+    .topnav { padding-top: 6px; }
+
+    .page { max-width: 720px; padding-left: 28px; padding-right: 28px; }
+
+    /* product grid becomes two wider cards per row */
+    .products { grid-template-columns: 1fr 1fr; gap: 28px; margin-top: 28px; }
+    .product img { width: 220px; }
+    .product .desc { font-size: 12px; line-height: 1.5; max-width: 300px; }
+
+    /* store row adjustments */
+    .store-row { align-items: center; gap: 12px; margin-top: 18px; }
+    .mini-actions { gap: 18px; }
+    .mini-car { width: 80px; }
+    .store-header { padding: 12px 20px; font-size:16px; border-radius:8px; }
+    .product.single { max-width: 520px; }
+
+    .topnav {
+        padding-top:50px;
+        padding-left: 20px;
+        
+        background: #000 !important;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        min-height: 48px;
+    }
+    .menu a::after { display: none !important; }
+    .menu li + li a::before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 18px;
+        background: rgba(255,255,255,0.22);
+        margin: 0 12px 0 0;
+        vertical-align: middle;
+    }
+    .menu { gap: 8px; }
+    .menu a { padding: 6px 10px; width: auto; }
+}
+
+/* Desktop: force products into a single row (fixed items) */
+@media (min-width: 1025px) {
+    .products {
+        display: flex;
+        flex-direction: row;
+        gap: 32px;
+        justify-content: center;
+        align-items: flex-start;
+        flex-wrap: nowrap;       /* keep everything on one line */
+        margin-top: 28px;
+        padding: 12px 0;
+    }
+
+    /* each card becomes a fixed-width item */
+    .product {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        flex: 0 0 360px;         /* adjust width to taste */
+        max-width: 260px;
+        margin: 0;
+        box-sizing: border-box;
+        grid-column: auto;       /* cancel any grid spanning */
+    }
+
+    .product img {
+        width: 100%;
+        height: auto;
+        max-width: 320px;
+    }
+
+    /* single card behaves like other cards (no full-span) */
+    .product.single {
+        flex: 0 0 360px;
+        max-width: 260px;
+        grid-column: auto;
+        margin: 0;
+    }
+}
+
+/* Page-specific background override (Buy page) */
+body::before { display: none !important; } /* disable global pseudo-bg if present */
+body, html {
+    background-image: url('../img/square_bg.png');
+    background-repeat: repeat;        /* pattern tiles */
+    background-position: center top;
+    background-size: auto;
 }
