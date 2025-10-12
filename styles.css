@@ -3,7 +3,7 @@ body,html {
     padding: 0;
     font-family: Arial, Helvetica, sans-serif;
     color: #111;
-    min-height: 100vh;
+    min-height: 105vh;
     position: relative;
 
     -webkit-font-smoothing:antialiased;
@@ -37,35 +37,43 @@ body::before {
 }
 
 .site-footer {
-    position: relative;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    height: 110px;                /* adjust thickness if needed */
+    padding: 18px 12px;
+    box-sizing: border-box;
     overflow: hidden;
     color: #eee;
-    padding: 14px 12px;
-    margin-top: 20px;
-    background-color: #000;
+    background-color: #000;       /* solid black base */
+    z-index: 50;                  /* above page bg but below modals */
 }
 
+/* image overlay on top of the black background (low opacity) */
 .site-footer::before {
     content: "";
     position: absolute;
     inset: 0;
     background-image: url('../img/footer_background.png');
-    background-size: cover;
-    background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.18;
+    background-size: 100% auto;   /* fit to width, keep aspect ratio */
+    background-position: center bottom;
+    opacity: 0.12;                /* low opacity for subtle effect */
     z-index: 0;
     pointer-events: none;
 }
 
+/* keep footer content above the overlay */
 .site-footer .footer-inner {
     position: relative;
     z-index: 1;
+    height: 100%;
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
     max-width: 420px;
     margin: 0 auto;
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
     color:#fff;
 }
 .hero .overlay {
@@ -93,7 +101,8 @@ body::before {
     list-style: none;
     padding: 0;
     margin: 0;
-    font-family: "Jersey 25", sans-serif;
+    font-family: "Jersey 25", sans-serif;  
+    font-weight: 400;
     font-style: normal;
 }
 .menu li {
@@ -110,7 +119,10 @@ body::before {
     padding: 10px 38px;
     width: 180px;
     border-radius: 2px;
-    font-size: 14px;
+    font-size: 16px;
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 80;
+    font-style: normal;
 }
 
 .menu a::after {
@@ -143,7 +155,7 @@ body::before {
 /* footer template */
 
 .site-footer .footer-inner {
-    max-width: 420px;
+    max-width: 1024px;
     margin: 0 auto;
     display:flex;
     justify-content:space-between;
@@ -151,7 +163,7 @@ body::before {
     color:#fff;
 }
 .site-footer p { margin:0; font-size:12px; opacity:0.9; }
-.site-footer .social img { width:26px; margin-left:8px; opacity:0.95; }
+.site-footer .social img { width:26px; height: auto; margin-left:8px; opacity:0.95; }
 
 h2 { font-size:18px; letter-spacing:3px; text-align:center; margin: 18px 0; }
 a.cta {
@@ -166,4 +178,119 @@ a.cta {
     font-family: "Jersey 25", sans-serif;
     letter-spacing: 1px;
     font-style: normal;
+}
+
+/* hide tagline by default (mobile/desktop) */
+.hero .tagline {
+    display: none;
+    pointer-events: none;
+}
+
+/* show and style tagline only on tablet view */
+@media (min-width: 768px) {
+    .hero .tagline {
+        display: block;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 3;
+        margin: 0;
+        color: #fff;
+        font-family: "Koulen", sans-serif;
+        font-weight: 100;
+        text-transform: uppercase;
+        text-align: center;
+        letter-spacing: 8px;
+        text-shadow: 0 6px 30px rgba(0,0,0,0.6);
+        padding: 0 16px;
+        white-space: nowrap;
+        font-size: 20px;
+    }
+}
+
+@media (min-width: 768px) {
+    /* page width for tablet */
+    .page { max-width: 720px; padding-left: 20px; padding-right: 20px; }
+
+    /* header / hero tweaks */
+    .hero { height: 420px; background-position: center top; }
+    .hero .overlay { background: rgba(0,0,0,0.65); }
+
+    /* topnav: logo left, menu right */
+    .topnav {
+        max-width: 100%;
+        text-align: left;
+        padding-top: 18px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 24px;
+    }
+    .logo { width: 160px; margin: 0; flex: 0 0 auto; }
+
+    /* horizontal menu with separators */
+    .menu {
+        display: flex;
+        flex-direction: row;
+        gap: 0;
+        align-items: center;
+        margin: 0;
+        padding: 0;
+    }
+    .menu li {
+        list-style: none;
+        margin: 0;
+        display: flex;
+        align-items: center;
+    }
+
+    .menu a {
+        padding: 8px 14px;
+        width: auto;
+        font-size: 15px;
+        letter-spacing: 2px;
+        text-transform: uppercase;
+        color: #fff;
+        display: inline-block;
+    }
+
+    /* vertical separator between items */
+    .menu li + li a::before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 18px;
+        background: rgba(255,255,255,0.22);
+        margin: 0 12px 0 0;
+        vertical-align: middle;
+    }
+
+    /* reduce underline width on tablet */
+    .menu a::after { width: 48%; margin-top: 8px; }
+
+    /* page content spacing */
+    .page { margin-top: 22px; }
+
+    /* footer sizing */
+    .site-footer { height: 120px; padding: 20px 24px; }
+    .site-footer::before { background-size: 100% auto; opacity: 0.14; }
+}
+
+.contact-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 6px;
+}
+.contact-label {
+    color: #fff;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 0.6px;
+    position: absolute;
+    bottom: 0;
+    top: 0;
+    right: 12px;
+    font-family: "Kumbh Sans", sans-serif;
 }
