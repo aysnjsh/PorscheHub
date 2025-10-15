@@ -1,6 +1,12 @@
+/*
+EISEN JOSH BANGIT
+WD201
+*/
+
 body,html {
     margin: 0;
     padding: 0;
+    padding-bottom: 70px;
     font-family: Arial, Helvetica, sans-serif;
     color: #111;
     min-height: 105vh;
@@ -18,12 +24,19 @@ body::before {
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
-    opacity: 0.3; /* adjust this value (0.0 - 1.0) to control image opacity */
+    opacity: 0.3;
     z-index: -1;
     pointer-events: none;
 }
 
-/* HERO / HEADER (shared mobile template) */
+.print-header {
+    display: none;
+}
+
+.car-title, .final-image {
+    display: none;
+}
+
 .hero {
     position: relative;
     background-image: url('../img/homepage_background.png');
@@ -41,30 +54,28 @@ body::before {
     left: 0;
     right: 0;
     bottom: 0;
-    height: 110px;                /* adjust thickness if needed */
+    height: 110px;
     padding: 18px 12px;
     box-sizing: border-box;
     overflow: hidden;
     color: #eee;
-    background-color: #000;       /* solid black base */
-    z-index: 50;                  /* above page bg but below modals */
+    background-color: #000;
+    z-index: 50;
 }
 
-/* image overlay on top of the black background (low opacity) */
 .site-footer::before {
     content: "";
     position: absolute;
     inset: 0;
     background-image: url('../img/footer_background.png');
     background-repeat: no-repeat;
-    background-size: 100% auto;   /* fit to width, keep aspect ratio */
+    background-size: 100% auto;
     background-position: center bottom;
-    opacity: 0.12;                /* low opacity for subtle effect */
+    opacity: 0.12;
     z-index: 0;
     pointer-events: none;
 }
 
-/* keep footer content above the overlay */
 .site-footer .footer-inner {
     position: relative;
     z-index: 1;
@@ -152,7 +163,6 @@ body::before {
     box-sizing: border-box;
 }
 
-/* footer template */
 
 .site-footer .footer-inner {
     max-width: 1024px;
@@ -162,10 +172,24 @@ body::before {
     align-items:center;
     color:#fff;
 }
-.site-footer p { margin:0; font-size:12px; opacity:0.9; }
-.site-footer .social img { width:26px; height: auto; margin-left:8px; opacity:0.95; }
+.site-footer p { margin:0;
+    font-size:12px;
+    opacity:0.9; }
 
-h2 { font-size:18px; letter-spacing:3px; text-align:center; margin: 18px 0; }
+.site-footer .social img {
+    width:26px;
+    height: auto;
+    margin-left:8px;
+    opacity:0.95;
+}
+
+h2 {
+    font-size:18px;
+    letter-spacing:3px;
+    text-align:center;
+    margin: 18px 0;
+}
+
 a.cta {
     display:inline-block;
     background:#4a4a4a;
@@ -180,13 +204,11 @@ a.cta {
     font-style: normal;
 }
 
-/* hide tagline by default (mobile/desktop) */
 .hero .tagline {
     display: none;
     pointer-events: none;
 }
 
-/* show and style tagline only on tablet view */
 @media (min-width: 768px) {
     .hero .tagline {
         display: block;
@@ -210,14 +232,18 @@ a.cta {
 }
 
 @media (min-width: 768px) {
-    /* page width for tablet */
-    .page { max-width: 720px; padding-left: 20px; padding-right: 20px; }
+    .page {
+        max-width: 720px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
 
-    /* header / hero tweaks */
-    .hero { height: 420px; background-position: center top; }
+    .hero {
+        height: 420px;
+        background-position: center top;
+    }
     .hero .overlay { background: rgba(0,0,0,0.65); }
 
-    /* topnav: logo left, menu right */
     .topnav {
         max-width: 100%;
         text-align: left;
@@ -227,9 +253,12 @@ a.cta {
         justify-content: space-between;
         gap: 24px;
     }
-    .logo { width: 160px; margin: 0; flex: 0 0 auto; }
+    .logo {
+        width: 160px;
+        margin: 0;
+        flex: 0 0 auto;
+    }
 
-    /* horizontal menu with separators */
     .menu {
         display: flex;
         flex-direction: row;
@@ -255,7 +284,6 @@ a.cta {
         display: inline-block;
     }
 
-    /* vertical separator between items */
     .menu li + li a::before {
         content: "";
         display: inline-block;
@@ -266,15 +294,18 @@ a.cta {
         vertical-align: middle;
     }
 
-    /* reduce underline width on tablet */
     .menu a::after { width: 48%; margin-top: 8px; }
 
-    /* page content spacing */
     .page { margin-top: 22px; }
 
-    /* footer sizing */
-    .site-footer { height: 120px; padding: 20px 24px; }
-    .site-footer::before { background-size: 100% auto; opacity: 0.14; }
+    .site-footer {
+        height: 120px;
+        padding: 20px 24px;
+    }
+    .site-footer::before {
+        background-size: 100% auto;
+        opacity: 0.14;
+    }
 }
 
 .contact-right {
@@ -293,4 +324,40 @@ a.cta {
     top: 0;
     right: 12px;
     font-family: "Kumbh Sans", sans-serif;
+}
+
+@media print {
+    body, html {
+        
+        min-height: auto !important;
+    }
+
+    body::before, .hero, .site-footer::before {
+        display: none !important;
+    }
+
+    .footer-inner {
+        padding-top: 30px !important;
+    }
+
+
+    .contact-right {
+        visibility: hidden !important;
+    }
+
+    .site-footer::before { display: none !important; }
+
+    .site-footer .footer-inner {
+        display: block !important;
+        text-align: center !important;
+        max-width: none !important;
+        margin: 0 auto !important;
+    }
+
+    .site-footer p {
+        color: #fff !important;
+        margin: 6px 0 !important;
+        font-size: 15pt !important;
+    }
+
 }
