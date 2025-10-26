@@ -1,0 +1,419 @@
+/*
+EISEN JOSH BANGIT
+WD201
+*/
+
+.login-page {
+    padding: 20px 14px 40px;
+    max-width: 390px;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.login-wrap {
+    display: flex;
+    justify-content: center;
+    transform: translateY(-20px);
+}
+
+.login-card {
+    margin-top:80px;
+    width: 100%;
+    display: flex;
+    gap: 18px;
+    background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.8));
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.6);
+    align-items: flex-start;
+    color: #fff;
+    border: 1px solid rgba(255,255,255,0.04);
+}
+
+.card-left {
+    flex: 1;
+    display:flex;
+    flex-direction:column;
+    gap:20px;}
+
+.field-label {
+    display:block;
+    font-size:12px;
+    color:#ddd;
+    font-family: "League Spartan", sans-serif;
+    margin-bottom:6px;
+    font-weight:700;
+    letter-spacing:1px; }
+
+.login-card input {
+    width: 100%;
+    padding: 5px 12px;
+    border-radius: 10px;
+    border: 3px solid rgba(255,255,255,1);
+    background: rgba(255,255,255,0.03);
+    color:rgba(255,255,255,0.5);
+    outline: none;
+    box-sizing: border-box;
+    font-size:9px;
+}
+
+.card-right {
+    width:150px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+    align-items:stretch;
+    text-align:right;
+    padding-top: 40px;
+}
+
+.login-title {
+    font-family: "Jersey 25", sans-serif;
+    font-weight: 80;
+    font-style: normal;
+    font-size: 20px;
+    letter-spacing:3px;
+    color:#fff;
+    margin-bottom:6px;
+    text-align: center;
+}
+
+.btn-primary {
+    font-family: "League Spartan", sans-serif;
+    display:inline-block;
+    background: rgba(0,0,0,0.55);
+    color:#fff;
+    padding:7px 14px;
+    border-radius: 9px;
+    border:2px solid rgba(255,255,255,0.9);
+    font-weight:800;
+    cursor:pointer;
+    align-self: center;
+}
+
+.btn-primary.faded,
+.btn-primary[disabled] {
+    opacity: 0.42;
+    pointer-events: none;
+    transform: none;
+    filter: none;
+}
+
+.btn-primary {
+    transition: opacity 180ms ease, transform 160ms ease;
+}
+
+.oauth {
+    display:flex;
+    align-items:center;
+    gap:8px;
+    justify-content: center;
+    color:#ddd;
+    font-size:13px;
+    background-color: #242424;
+    padding: 5px 10px;
+    font-size: 9px;
+    border-radius: 8px;
+    color: white;
+    font-weight: bold;
+    font-family: "League Spartan", sans-serif;
+}
+.oauth img { width:18px;
+    height:18px;
+    display:block; }
+
+.small .login-link {
+    color: #1E90FF;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.small { display:block;
+    font-family: "League Spartan", sans-serif;
+    color:#bbb;
+    font-size:12px;
+    font-weight: bold;
+    text-decoration:none; }
+
+.error-msg {
+    font-size: 12px;
+    color: #969696;
+    font-style: italic;
+    margin-top: 6px;
+    line-height: 1.2;
+    opacity: 0.95;
+}
+
+.input-error {
+    box-shadow: 0 0 0 3px rgba(219, 69, 69, 0.06);
+    outline: none;
+}
+
+@media (max-width:300px){
+    .login-card { flex-direction:column;
+        gap:12px;
+        padding:16px;}
+
+    .card-right {
+        width:100%;
+        text-align:center;
+        align-items:center;
+    }
+    .login-title {
+        text-align:center;
+        width:100%;
+    }
+    .small {
+        text-align:center;
+    }
+}
+
+@media (min-width: 768px) {
+    .page { max-width: 720px;
+        padding-left: 28px;
+        padding-right: 28px;
+        padding-top: 150px;}
+
+    .login-wrap { transform: translateY(-36px); }
+    .login-card {
+        margin-top: 0;
+        padding: 28px;
+        background: linear-gradient(rgba(0,0,0,0.85), rgba(0,0,0,0.78));
+        border-radius: 18px;
+        box-shadow: 0 22px 48px rgba(0,0,0,0.6);
+    }
+
+    .card-left { gap: 18px; }
+    .login-card input {
+        padding: 10px 14px;
+        font-size: 14px;
+        border-radius: 18px; }
+    .card-right {
+        width: 220px;
+        padding-top: 24px;
+        align-items:center; text-align:center; }
+    .btn-primary {
+        padding: 12px 20px;
+        border-radius: 22px; }
+    .oauth {
+        font-size: 13px;
+        padding: 8px 12px;
+        border-radius: 12px; }
+    .login-title {
+        font-size: 24px;
+        letter-spacing:4px; }
+
+    .topnav {
+        background: #000 !important;
+        padding-top: 50px !important;
+        padding-left: 20px;
+        padding-right: 20px;
+        border-radius: 0 !important;
+        box-shadow: none !important;
+        min-height: 48px;
+    }
+    .menu a::after { display: none !important; }
+    .menu li + li a::before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 18px;
+        background: rgba(255,255,255,0.22);
+        margin: 0 12px 0 0;
+        vertical-align: middle;
+    }
+    .menu { gap: 8px; }
+    .menu a { padding: 6px 10px; width: auto; }
+
+    .hero {
+        background-image: none !important;
+        background-color: #000 !important;
+        height: 72px;
+    }
+    .hero .overlay { display: none !important; }
+    .topnav { padding-top: 6px; }
+}
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    background-image: url('../img/contact_background.jpg');
+    background-size: cover;
+    background-position: center bottom;
+    background-repeat: no-repeat;
+
+    background-color: rgba(0,0,0,0.56);
+    background-blend-mode: overlay;
+    opacity: 1;
+    z-index: -2;
+    pointer-events: none;
+}
+
+:root {
+    --footer-height: 110px;
+    --header-height: 72px;
+}
+
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    padding-bottom: var(--footer-height);
+}
+
+.page {
+    min-height: calc(100vh - var(--footer-height) - var(--header-height));
+    box-sizing: border-box;
+}
+
+.page > :last-child {
+    margin-bottom: 0;
+    padding-bottom: 0;
+}
+
+@media print {
+
+         header.print-header {
+        display: flex !important;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 22px;
+        border-bottom: 1.5px solid #000;
+        margin-bottom: 16px;
+    }
+
+    header.print-header .logo {
+        width: 130px !important;
+        height: auto;
+        display: block;
+    }
+
+    header.print-header nav {
+        flex: 1;
+        text-align: right;
+        position: relative;
+    }
+
+    header.print-header nav ul {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: inline-flex;
+        gap: 10px;
+        align-items: center;
+    }
+
+    header.print-header nav ul li {
+        display: inline-flex;
+        align-items: center;
+    }
+
+    header.print-header nav ul li + li::before {
+        content: "";
+        display: inline-block;
+        width: 1px;
+        height: 14px;
+        background: #000;
+        margin: 0 10px;
+        vertical-align: middle;
+    }
+
+    header.print-header nav ul li a {
+        text-decoration: none;
+        font-weight: 600;
+        color: #000 !important;
+        font-size: 11pt;
+        letter-spacing: 0.4px;
+        font-family: "Jersey 25", sans-serif;
+    }
+
+    header.print-header .mini-car {
+        width: 70px;
+        height: auto;
+        margin-left: 14px;
+    }
+
+    .body {
+        width: 100% !important;
+    }
+
+    .login-wrap {
+        display: block !important;
+        transform: none !important;
+        margin: 70px auto !important;
+    }
+
+    .login-card {
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 12px !important;
+        background: transparent !important;
+        padding: 0 !important;
+        margin: 0 auto 12px !important;
+        box-shadow: none !important;
+        border: none !important;
+        color: #000 !important;
+    }
+
+    .card-left {
+        width: 100% !important;
+        display: block !important;
+        gap: 8px !important;
+    }
+
+    .card-right {
+        width: 100% !important;
+        display: flex !important;
+        flex-direction: column !important;
+        gap: 8px !important;
+        align-items: stretch !important;
+        text-align: center !important;
+        padding-top: 0 !important;
+    }
+
+    .login-card input {
+        border: 2px solid #000 !important;
+        background: transparent !important;
+        color: #000 !important;
+        padding: 8px 12px !important;
+        border-radius: 6px !important;
+        box-shadow: none !important;
+        outline: none !important;
+    }
+
+    .btn-primary,
+    .oauth,
+    .small,
+    .card-right button,
+    .card-right a {
+        display: block !important;
+        width: 100% !important;
+        box-sizing: border-box !important;
+        margin: 0 !important;
+        padding: 10px 12px !important;
+        border-radius: 8px !important;
+        background: transparent !important;
+        color: #000 !important;
+        border: 1px solid #000 !important;
+        text-align: center !important;
+        text-decoration: none !important;
+    }
+
+    .login-title { text-align: center !important; }
+
+    .card-right .small { border: none !important; background: none !important; color: #000 !important; font-weight: 700 !important; }
+
+    .page { padding-top: 0 !important; }
+
+    .login-card, .login-card * { page-break-inside: avoid !important; }
+
+    .field-label {
+        padding-top: 10px !important;
+    }
+}
